@@ -1,0 +1,1507 @@
+
+
+
+
+
+C:\Users\naeem noman\Desktop\mySQL>cd..
+
+C:\Users\naeem noman\Desktop>cd..
+
+C:\Users\naeem noman>cd..
+
+C:\Users>cd..
+
+C:\>cd..
+
+C:\>cd xampp/mysql/bin
+
+C:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [(none)]> create database youtubes;
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| youtubes           |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [(none)]> drop database youtubestudent
+    -> drop database youtubestudent;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'drop database youtubestudent' at line 2
+MariaDB [(none)]> drop database youtubestudent;
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| youtubes           |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [(none)]> create database youtubes;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> use youtubes;
+Database changed
+MariaDB [youtubes]> select database();
++------------+
+| database() |
++------------+
+| youtubes   |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> create table students
+    -> (
+    -> name varchar(55),
+    -> age int
+    -> );
+Query OK, 0 rows affected (0.678 sec)
+
+MariaDB [youtubes]>
+
+
+
+
+
+
+
+
+
+
+
+C:\Users\naeem noman\Desktop\mySQL>cd..
+
+C:\Users\naeem noman\Desktop>cd..
+
+C:\Users\naeem noman>cd..
+
+C:\Users>cd..
+
+C:\>mysql -u root -p -h localhost
+'mysql' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\>cd xampp/mysql/bin
+
+C:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use youtubes
+Database changed
+MariaDB [youtubes]> show tables;
++--------------------+
+| Tables_in_youtubes |
++--------------------+
+| studentdemo        |
+| students           |
++--------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [youtubes]> decs students
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'decs students' at line 1
+MariaDB [youtubes]> decs students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'decs students' at line 1
+MariaDB [youtubes]> desc students;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| name  | varchar(55) | YES  |     | NULL    |       |
+| age   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.023 sec)
+
+MariaDB [youtubes]> show columns from studentdemo;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| name  | varchar(55) | NO   |     | NULL    |       |
+| age   | int(11)     | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.031 sec)
+
+MariaDB [youtubes]> drop table studentname
+    -> ;
+ERROR 1051 (42S02): Unknown table 'youtubes.studentname'
+MariaDB [youtubes]> drop table studentname;
+ERROR 1051 (42S02): Unknown table 'youtubes.studentname'
+MariaDB [youtubes]> drop table students;
+Query OK, 0 rows affected (0.371 sec)
+
+MariaDB [youtubes]> desc students;
+ERROR 1146 (42S02): Table 'youtubes.students' doesn't exist
+MariaDB [youtubes]> show tables;
++--------------------+
+| Tables_in_youtubes |
++--------------------+
+| studentdemo        |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> create table students;
+ERROR 1113 (42000): A table must have at least 1 column
+MariaDB [youtubes]> create table students();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+MariaDB [youtubes]> create table students (
+    -> id int,
+    -> name varchar(55),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 4
+MariaDB [youtubes]> create table students (
+    -> id int,
+    -> name varchar(55)
+    -> );
+Query OK, 0 rows affected (0.359 sec)
+
+MariaDB [youtubes]> insert into students
+    -> (id,name,class)
+    -> values(1,'naeem',14)
+    -> ;
+ERROR 1054 (42S22): Unknown column 'class' in 'field list'
+MariaDB [youtubes]> insert into students
+    -> (id,name,class)
+    -> values(1,'naeem',14);
+ERROR 1054 (42S22): Unknown column 'class' in 'field list'
+MariaDB [youtubes]> insert into students
+    -> (id, name, class)
+    -> values (1 , 'naeem' , 14);
+ERROR 1054 (42S22): Unknown column 'class' in 'field list'
+MariaDB [youtubes]> insert into students
+    -> (id,name)
+    -> values (1 , 'naeem');
+Query OK, 1 row affected (0.231 sec)
+
+MariaDB [youtubes]> insert into students
+    -> values (2,'ghadai')
+    -> values (2,'ghadai');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'values (2,'ghadai')' at line 3
+MariaDB [youtubes]> insert into students
+    -> values (1 , 'naeem');
+Query OK, 1 row affected (0.174 sec)
+
+MariaDB [youtubes]> select*from students;
++------+-------+
+| id   | name  |
++------+-------+
+|    1 | naeem |
+|    1 | naeem |
++------+-------+
+2 rows in set (0.000 sec)
+
+MariaDB [youtubes]> insert into students (id,name,class)
+    -> values ('timepass' , 'naeem');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [youtubes]> insert into students (id,name,class)
+    -> insert into students (id,name)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'insert into students (id,name)' at line 2
+MariaDB [youtubes]> insert into students (id,name)
+    -> values ('timepass' , 'naeem');
+Query OK, 1 row affected, 1 warning (0.279 sec)
+
+MariaDB [youtubes]> show warning;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'warning' at line 1
+MariaDB [youtubes]> show warnings;
++-------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Level | Code | Message
+                                                                    |
++-------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Error | 1064 | You have an error in your SQL syntax; check the manual that corresponds to your MariaDB
+server version for the right syntax to use near 'warning' at line 1 |
++-------+------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]>
+
+
+C:\>mysql -u root -p -h localhost
+'mysql' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\>cd xampp/mysql/bin
+
+C:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 30
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use database;
+ERROR 1049 (42000): Unknown database 'database'
+MariaDB [(none)]> use youtubes;
+Database changed
+MariaDB [youtubes]> show tables
+    -> ;
++--------------------+
+| Tables_in_youtubes |
++--------------------+
+| studentdemo        |
+| students           |
++--------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [youtubes]> desc students;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | YES  |     | NULL    |       |
+| name  | varchar(55) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.154 sec)
+
+MariaDB [youtubes]> select * from students;
++------+-------+
+| id   | name  |
++------+-------+
+|    1 | naeem |
+|    1 | naeem |
+|    0 | naeem |
++------+-------+
+3 rows in set (0.001 sec)
+
+MariaDB [youtubes]> insert into students (id,values)
+    -> values (4,"ghadai");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'values)
+values (4,"ghadai")' at line 1
+MariaDB [youtubes]> insert into students (id,values),
+    -> insert into students (id,values),
+    -> values (4,"ghadai");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'values),
+insert into students (id,values),
+values (4,"ghadai")' at line 1
+MariaDB [youtubes]> insert into students (id,name)
+    -> values (4,"ghadai");
+Query OK, 1 row affected (0.172 sec)
+
+MariaDB [youtubes]> select * from students;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | naeem  |
+|    1 | naeem  |
+|    0 | naeem  |
+|    4 | ghadai |
++------+--------+
+4 rows in set (0.000 sec)
+
+MariaDB [youtubes]> create table stunull
+    -> (
+    -> id int not null,
+    -> name varchar(55) not null
+    -> );
+Query OK, 0 rows affected (0.661 sec)
+
+MariaDB [youtubes]> select * from students;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | naeem  |
+|    1 | naeem  |
+|    0 | naeem  |
+|    4 | ghadai |
++------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select * from stunull;
+Empty set (0.002 sec)
+
+MariaDB [youtubes]> desc stunull;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   |     | NULL    |       |
+| name  | varchar(55) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.032 sec)
+
+MariaDB [youtubes]> insert into stunull (id,name),
+    -> values(1,'naeem');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '
+values(1,'naeem')' at line 1
+MariaDB [youtubes]> insert into stunull (id,name)
+    -> values(1,'naeem');
+Query OK, 1 row affected (0.148 sec)
+
+MariaDB [youtubes]> desc stunull;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   |     | NULL    |       |
+| name  | varchar(55) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.024 sec)
+
+MariaDB [youtubes]> select * from stunull;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | naeem |
++----+-------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> insert into stunull (id,name),
+    -> values('ghadai');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '
+values('ghadai')' at line 1
+MariaDB [youtubes]> insert into stunull (id,name)
+    -> values('ghadai');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [youtubes]> insert into stunull (name)
+    -> values('ghadai');
+Query OK, 1 row affected, 1 warning (0.151 sec)
+
+MariaDB [youtubes]> desc stunull;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   |     | NULL    |       |
+| name  | varchar(55) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.021 sec)
+
+MariaDB [youtubes]> select * from stunull;
++----+--------+
+| id | name   |
++----+--------+
+|  1 | naeem  |
+|  0 | ghadai |
++----+--------+
+2 rows in set (0.000 sec)
+
+MariaDB [youtubes]> create table studef
+    -> ( id int not null default 0,
+    -> name varchar(55) not null default 'unnamed'
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.462 sec)
+
+MariaDB [youtubes]> desc studef
+    -> ;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   |     | 0       |       |
+| name  | varchar(55) | NO   |     | unnamed |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.024 sec)
+
+MariaDB [youtubes]> insert into studef () values ();
+Query OK, 1 row affected (0.148 sec)
+
+MariaDB [youtubes]> select * from studef;
++----+---------+
+| id | name    |
++----+---------+
+|  0 | unnamed |
++----+---------+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> alter table studef add school varchar(55);
+Query OK, 0 rows affected (0.306 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [youtubes]> desc studef
+    -> ;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int(11)     | NO   |     | 0       |       |
+| name   | varchar(55) | NO   |     | unnamed |       |
+| school | varchar(55) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.024 sec)
+
+MariaDB [youtubes]> alter table studef drop column school;
+Query OK, 0 rows affected (0.221 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [youtubes]> desc studef
+    -> ;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   |     | 0       |       |
+| name  | varchar(55) | NO   |     | unnamed |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.027 sec)
+
+MariaDB [youtubes]> create table abc
+    -> abc int not null,
+    -> name varchar(55)
+    -> ,
+    -> age int not null,
+    -> primary key (abs)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'int not null,
+name varchar(55)
+,
+age int not null,
+primary key (abs)
+)' at line 2
+MariaDB [youtubes]> create table abc
+    -> id int not null,
+    -> name varchar(55),
+    -> age int not null,
+    -> primary key(id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id int not null,
+name varchar(55),
+age int not null,
+primary key(id)
+)' at line 2
+MariaDB [youtubes]> create table abc
+    -> create table abc
+    -> ( id int not null,
+    -> name varchar(55),
+    -> primary key(id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'create table abc
+( id int not null,
+name varchar(55),
+primary key(id)
+)' at line 2
+MariaDB [youtubes]> desc studef
+    -> ;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   |     | 0       |       |
+| name  | varchar(55) | NO   |     | unnamed |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.036 sec)
+
+MariaDB [youtubes]> create table abc
+    -> ( id int not null,
+    -> name varchar(55),
+    -> primary key (id)
+    -> );
+Query OK, 0 rows affected (0.306 sec)
+
+MariaDB [youtubes]> create table abc
+    -> ( id int not null,
+    -> name varchar(55),
+    -> age int,
+    -> primary key (id)
+    -> );
+ERROR 1050 (42S01): Table 'abc' already exists
+MariaDB [youtubes]> desc studef
+    -> ;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   |     | 0       |       |
+| name  | varchar(55) | NO   |     | unnamed |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.030 sec)
+
+MariaDB [youtubes]> desc abc;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(55) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.028 sec)
+
+MariaDB [youtubes]>
+
+C:\>cd xampp/mysql/bin
+
+C:\xampp\mysql\bin>cd xampp/mysql/bin
+The system cannot find the path specified.
+
+C:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+ERROR 2002 (HY000): Can't connect to MySQL server on 'localhost' (10061)
+
+C:\xampp\mysql\bin>
+C:\xampp\mysql\bin>
+C:\xampp\mysql\bin>
+C:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+ERROR 2002 (HY000): Can't connect to MySQL server on 'localhost' (10061)
+
+C:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use youtubes;
+Database changed
+MariaDB [youtubes]> desc abc;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(55) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.062 sec)
+
+MariaDB [youtubes]> select * from abc;
+Empty set (0.513 sec)
+
+MariaDB [youtubes]> insert into abc(id,name)
+    -> values(1,naeem ghadai)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ghadai)' at line 2
+MariaDB [youtubes]> insert into abc(id,name)
+    -> values(1,'naeem ghadai');
+Query OK, 1 row affected (0.044 sec)
+
+MariaDB [youtubes]> select * from abc;
++----+--------------+
+| id | name         |
++----+--------------+
+|  1 | naeem ghadai |
++----+--------------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> insert into abc(id,name)
+    -> values(2,'ahmed');
+Query OK, 1 row affected (0.193 sec)
+
+MariaDB [youtubes]> select * from abc;
++----+--------------+
+| id | name         |
++----+--------------+
+|  1 | naeem ghadai |
+|  2 | ahmed        |
++----+--------------+
+2 rows in set (0.000 sec)
+
+MariaDB [youtubes]> create table auto
+    -> (id int not null default 0 auto_increment
+    -> , name varchar(55)
+    -> , age int
+    -> , primary key (id) );
+ERROR 1067 (42000): Invalid default value for 'id'
+MariaDB [youtubes]> create table autoinc
+    -> (id int not null default 0 auto_increment
+    -> , name varchar(55)
+    ->
+    -> ;
+ERROR 1067 (42000): Invalid default value for 'id'
+MariaDB [youtubes]> create table autoinc
+    -> (id int not null default 1 auto_increment
+    -> , name varchar(55)
+    -> , age int
+    -> , primary key (id) );
+ERROR 1067 (42000): Invalid default value for 'id'
+MariaDB [youtubes]> create table auto
+    -> (id int not null  auto_increment
+    -> , name varchar(55)
+    -> , age int
+    -> , primary key (id) );
+Query OK, 0 rows affected (0.678 sec)
+
+MariaDB [youtubes]> desc auto;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(55) | YES  |     | NULL    |                |
+| age   | int(11)     | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.021 sec)
+
+MariaDB [youtubes]> insert into auto(name,age)
+    -> values ('naeem',19);
+Query OK, 1 row affected (0.228 sec)
+
+MariaDB [youtubes]> insert into auto(name,age)
+    -> values ('ahmed',19);
+Query OK, 1 row affected (0.211 sec)
+
+MariaDB [youtubes]> select * from auto;
++----+-------+------+
+| id | name  | age  |
++----+-------+------+
+|  1 | naeem |   19 |
+|  2 | ahmed |   19 |
++----+-------+------+
+2 rows in set (0.001 sec)
+
+MariaDB [youtubes]> insert into auto(name,age)
+    -> values ('murtaza',19);
+Query OK, 1 row affected (0.065 sec)
+
+MariaDB [youtubes]> insert into auto(name,age)
+    -> values ('abdulkadir',19);
+Query OK, 1 row affected (0.180 sec)
+
+MariaDB [youtubes]> select * from auto;
++----+------------+------+
+| id | name       | age  |
++----+------------+------+
+|  1 | naeem      |   19 |
+|  2 | ahmed      |   19 |
+|  3 | murtaza    |   19 |
+|  4 | abdulkadir |   19 |
++----+------------+------+
+4 rows in set (0.000 sec)
+
+MariaDB [youtubes]> show tables;
++--------------------+
+| Tables_in_youtubes |
++--------------------+
+| abc                |
+| auto               |
+| studef             |
+| studentdemo        |
+| students           |
+| stunull            |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [youtubes]> drop table students;
+Query OK, 0 rows affected (0.269 sec)
+
+MariaDB [youtubes]> create table students
+    -> (id int not null auto_increment,
+    -> fname varchar(55),
+    -> lname varchar(55),
+    -> age int not null,
+    -> primary key(id)
+    -> );
+Query OK, 0 rows affected (0.383 sec)
+
+MariaDB [youtubes]> desc students;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| fname | varchar(55) | YES  |     | NULL    |                |
+| lname | varchar(55) | YES  |     | NULL    |                |
+| age   | int(11)     | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+4 rows in set (0.030 sec)
+
+C:\>cd xampp/mysql/bin
+
+C:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use youtubes;
+Database changed
+MariaDB [youtubes]> desc students;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| fname | varchar(55) | YES  |     | NULL    |                |
+| lname | varchar(55) | YES  |     | NULL    |                |
+| age   | int(11)     | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+4 rows in set (0.032 sec)
+
+MariaDB [youtubes]> insert into students (fname,lname,age)
+    -> values("naeem","ghadai",19),
+    -> ("ahmed","abdus",19),
+    -> ("abdulkadir","shekha",19),
+    -> ("salik","mulla",19),
+    -> ("murtaza","bar",19),
+    -> ("zaki","bhojani",19);
+Query OK, 6 rows affected (0.183 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+MariaDB [youtubes]> select * from students;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  1 | naeem      | ghadai  |  19 |
+|  2 | ahmed      | abdus   |  19 |
+|  3 | abdulkadir | shekha  |  19 |
+|  4 | salik      | mulla   |  19 |
+|  5 | murtaza    | bar     |  19 |
+|  6 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+6 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where age = 19;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  1 | naeem      | ghadai  |  19 |
+|  2 | ahmed      | abdus   |  19 |
+|  3 | abdulkadir | shekha  |  19 |
+|  4 | salik      | mulla   |  19 |
+|  5 | murtaza    | bar     |  19 |
+|  6 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+6 rows in set (0.108 sec)
+
+MariaDB [youtubes]> select fname from students where age = 19;
++------------+
+| fname      |
++------------+
+| naeem      |
+| ahmed      |
+| abdulkadir |
+| salik      |
+| murtaza    |
+| zaki       |
++------------+
+6 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select fname,lname from students where age = 19;
++------------+---------+
+| fname      | lname   |
++------------+---------+
+| naeem      | ghadai  |
+| ahmed      | abdus   |
+| abdulkadir | shekha  |
+| salik      | mulla   |
+| murtaza    | bar     |
+| zaki       | bhojani |
++------------+---------+
+6 rows in set (0.001 sec)
+
+MariaDB [youtubes]> update students set age = 20 where fname = "murtaza";
+Query OK, 1 row affected (0.267 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [youtubes]> select * from students;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  1 | naeem      | ghadai  |  19 |
+|  2 | ahmed      | abdus   |  19 |
+|  3 | abdulkadir | shekha  |  19 |
+|  4 | salik      | mulla   |  19 |
+|  5 | murtaza    | bar     |  20 |
+|  6 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+6 rows in set (0.000 sec)
+
+MariaDB [youtubes]> update students set age = 19 where id = 5;
+Query OK, 1 row affected (0.097 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [youtubes]> select * from students;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  1 | naeem      | ghadai  |  19 |
+|  2 | ahmed      | abdus   |  19 |
+|  3 | abdulkadir | shekha  |  19 |
+|  4 | salik      | mulla   |  19 |
+|  5 | murtaza    | bar     |  19 |
+|  6 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+6 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where fname = "murtaza";
++----+---------+-------+-----+
+| id | fname   | lname | age |
++----+---------+-------+-----+
+|  5 | murtaza | bar   |  19 |
++----+---------+-------+-----+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> delete from students where fname = "murtaza";
+Query OK, 1 row affected (0.208 sec)
+
+MariaDB [youtubes]> select * from students;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  1 | naeem      | ghadai  |  19 |
+|  2 | ahmed      | abdus   |  19 |
+|  3 | abdulkadir | shekha  |  19 |
+|  4 | salik      | mulla   |  19 |
+|  6 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+5 rows in set (0.000 sec)
+
+MariaDB [youtubes]> delete from students;
+Query OK, 5 rows affected (0.082 sec)
+
+MariaDB [youtubes]> select * from students;
+Empty set (0.000 sec)
+
+MariaDB [youtubes]> insert into students (fname,lname,age)
+    -> values("naeem","ghadai",19),
+    -> ("ahmed","abdus",19),
+    -> ("abdulkadir","shekha",19),
+    -> ("salik","mulla",19),
+    -> ("murtaza","bar",19),
+    -> ("zaki","bhojani",19);
+Query OK, 6 rows affected (0.048 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+MariaDB [youtubes]> select distinct fname from students;
++------------+
+| fname      |
++------------+
+| naeem      |
+| ahmed      |
+| abdulkadir |
+| salik      |
+| murtaza    |
+| zaki       |
++------------+
+6 rows in set (0.116 sec)
+
+MariaDB [youtubes]>
+
+C:\>cd xampp/mysql/bin
+
+C:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+ERROR 2002 (HY000): Can't connect to MySQL server on 'localhost' (10061)
+
+C:\xampp\mysql\bin>mysql -u root -p -h localhost
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use youtubes;
+Database changed
+MariaDB [youtubes]> select id,distinct fname from studentsl
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'distinct fname from studentsl' at line 1
+MariaDB [youtubes]> select id,distinct fname from students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'distinct fname from students' at line 1
+MariaDB [youtubes]> select distinct fname from students;
++------------+
+| fname      |
++------------+
+| naeem      |
+| ahmed      |
+| abdulkadir |
+| salik      |
+| murtaza    |
+| zaki       |
++------------+
+6 rows in set (0.348 sec)
+
+MariaDB [youtubes]> select distinct age from students;
++-----+
+| age |
++-----+
+|  19 |
++-----+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> select age from students order by age;
++-----+
+| age |
++-----+
+|  19 |
+|  19 |
+|  19 |
+|  19 |
+|  19 |
+|  19 |
++-----+
+6 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select distinct age from students order by age;
++-----+
+| age |
++-----+
+|  19 |
++-----+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> select distinct age from students order by age desc;
++-----+
+| age |
++-----+
+|  19 |
++-----+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> select distinct ad from students order by age desc;
+ERROR 1054 (42S22): Unknown column 'ad' in 'field list'
+MariaDB [youtubes]> select distinct id from students order by age desc;
++----+
+| id |
++----+
+|  7 |
+|  8 |
+|  9 |
+| 10 |
+| 11 |
+| 12 |
++----+
+6 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select id from students order by age desc;
++----+
+| id |
++----+
+|  7 |
+|  8 |
+|  9 |
+| 10 |
+| 11 |
+| 12 |
++----+
+6 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select id from students order by id  desc;
++----+
+| id |
++----+
+| 12 |
+| 11 |
+| 10 |
+|  9 |
+|  8 |
+|  7 |
++----+
+6 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select fname from students order by fname desc;
++------------+
+| fname      |
++------------+
+| zaki       |
+| salik      |
+| naeem      |
+| murtaza    |
+| ahmed      |
+| abdulkadir |
++------------+
+6 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select fname from students order by fname;
++------------+
+| fname      |
++------------+
+| abdulkadir |
+| ahmed      |
+| murtaza    |
+| naeem      |
+| salik      |
+| zaki       |
++------------+
+6 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select fname from students order by fname limit by 3;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'by 3' at line 1
+MariaDB [youtubes]> select fname from students order by fname limit 3;
++------------+
+| fname      |
++------------+
+| abdulkadir |
+| ahmed      |
+| murtaza    |
++------------+
+3 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select fname from students where fname like ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [youtubes]> select fname from students where fname like "%a%";
++------------+
+| fname      |
++------------+
+| naeem      |
+| ahmed      |
+| abdulkadir |
+| salik      |
+| murtaza    |
+| zaki       |
++------------+
+6 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select fname from students where fname like "%ab%";
++------------+
+| fname      |
++------------+
+| abdulkadir |
++------------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> select fname from students where fname like "a%";
++------------+
+| fname      |
++------------+
+| ahmed      |
+| abdulkadir |
++------------+
+2 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select max(age) from students;
++----------+
+| max(age) |
++----------+
+|       19 |
++----------+
+1 row in set (0.348 sec)
+
+MariaDB [youtubes]> select min(age) from students;
++----------+
+| min(age) |
++----------+
+|       19 |
++----------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> select sum(age) from students;
++----------+
+| sum(age) |
++----------+
+|      114 |
++----------+
+1 row in set (0.036 sec)
+
+MariaDB [youtubes]> select count(id) from students;
++-----------+
+| count(id) |
++-----------+
+|         6 |
++-----------+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> select avg(id) from students;
++---------+
+| avg(id) |
++---------+
+|  9.5000 |
++---------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> select avg(age) from students;
++----------+
+| avg(age) |
++----------+
+|  19.0000 |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> update students set age = 20 where fname = "murtaza"
+    -> ;
+Query OK, 1 row affected (0.124 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [youtubes]> update students set age = 18 where fname = "ahmed";
+Query OK, 1 row affected (0.156 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [youtubes]> update students set age = 21 where fname = "abdulkadir";
+Query OK, 1 row affected (0.174 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [youtubes]> select * students;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'students' at line 1
+MariaDB [youtubes]> select * from students;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  7 | naeem      | ghadai  |  19 |
+|  8 | ahmed      | abdus   |  18 |
+|  9 | abdulkadir | shekha  |  21 |
+| 10 | salik      | mulla   |  19 |
+| 11 | murtaza    | bar     |  20 |
+| 12 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+6 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select * from students where age = 19;
++----+-------+---------+-----+
+| id | fname | lname   | age |
++----+-------+---------+-----+
+|  7 | naeem | ghadai  |  19 |
+| 10 | salik | mulla   |  19 |
+| 12 | zaki  | bhojani |  19 |
++----+-------+---------+-----+
+3 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select * from students where age != 19;
++----+------------+--------+-----+
+| id | fname      | lname  | age |
++----+------------+--------+-----+
+|  8 | ahmed      | abdus  |  18 |
+|  9 | abdulkadir | shekha |  21 |
+| 11 | murtaza    | bar    |  20 |
++----+------------+--------+-----+
+3 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select * from students where age >  19;
++----+------------+--------+-----+
+| id | fname      | lname  | age |
++----+------------+--------+-----+
+|  9 | abdulkadir | shekha |  21 |
+| 11 | murtaza    | bar    |  20 |
++----+------------+--------+-----+
+2 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where age >= 19;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  7 | naeem      | ghadai  |  19 |
+|  9 | abdulkadir | shekha  |  21 |
+| 10 | salik      | mulla   |  19 |
+| 11 | murtaza    | bar     |  20 |
+| 12 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+5 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where age < 19;
++----+-------+-------+-----+
+| id | fname | lname | age |
++----+-------+-------+-----+
+|  8 | ahmed | abdus |  18 |
++----+-------+-------+-----+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where age <= 19;
++----+-------+---------+-----+
+| id | fname | lname   | age |
++----+-------+---------+-----+
+|  7 | naeem | ghadai  |  19 |
+|  8 | ahmed | abdus   |  18 |
+| 10 | salik | mulla   |  19 |
+| 12 | zaki  | bhojani |  19 |
++----+-------+---------+-----+
+4 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where age >= 19 or age <=21;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  7 | naeem      | ghadai  |  19 |
+|  8 | ahmed      | abdus   |  18 |
+|  9 | abdulkadir | shekha  |  21 |
+| 10 | salik      | mulla   |  19 |
+| 11 | murtaza    | bar     |  20 |
+| 12 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+6 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select * from students where age between 19 and 20;
++----+---------+---------+-----+
+| id | fname   | lname   | age |
++----+---------+---------+-----+
+|  7 | naeem   | ghadai  |  19 |
+| 10 | salik   | mulla   |  19 |
+| 11 | murtaza | bar     |  20 |
+| 12 | zaki    | bhojani |  19 |
++----+---------+---------+-----+
+4 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where age >= 19 && age <=21;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  7 | naeem      | ghadai  |  19 |
+|  9 | abdulkadir | shekha  |  21 |
+| 10 | salik      | mulla   |  19 |
+| 11 | murtaza    | bar     |  20 |
+| 12 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+5 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where age <= 19 && age >=21;
+Empty set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where age <= 19 && age >=20;
+Empty set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where age >= 19 && age <=21;
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  7 | naeem      | ghadai  |  19 |
+|  9 | abdulkadir | shekha  |  21 |
+| 10 | salik      | mulla   |  19 |
+| 11 | murtaza    | bar     |  20 |
+| 12 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+5 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select * from students where age >= 19 && age <=20;
++----+---------+---------+-----+
+| id | fname   | lname   | age |
++----+---------+---------+-----+
+|  7 | naeem   | ghadai  |  19 |
+| 10 | salik   | mulla   |  19 |
+| 11 | murtaza | bar     |  20 |
+| 12 | zaki    | bhojani |  19 |
++----+---------+---------+-----+
+4 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select * from students where age not between 19 and 20;
++----+------------+--------+-----+
+| id | fname      | lname  | age |
++----+------------+--------+-----+
+|  8 | ahmed      | abdus  |  18 |
+|  9 | abdulkadir | shekha |  21 |
++----+------------+--------+-----+
+2 rows in set (0.000 sec)
+
+MariaDB [youtubes]> select * from students where fname = 'naeem' or 'abdulkadir';
++----+-------+--------+-----+
+| id | fname | lname  | age |
++----+-------+--------+-----+
+|  7 | naeem | ghadai |  19 |
++----+-------+--------+-----+
+1 row in set, 5 warnings (0.105 sec)
+
+MariaDB [youtubes]> select * from students where fname = 'naeem' and 'abdulkadir';
+Empty set, 5 warnings (0.000 sec)
+
+MariaDB [youtubes]> select * from students where fname = ('naeem' and 'abdulkadir');
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  7 | naeem      | ghadai  |  19 |
+|  8 | ahmed      | abdus   |  18 |
+|  9 | abdulkadir | shekha  |  21 |
+| 10 | salik      | mulla   |  19 |
+| 11 | murtaza    | bar     |  20 |
+| 12 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+6 rows in set, 15 warnings (0.002 sec)
+
+MariaDB [youtubes]> select * from students where fname in  ('naeem' and 'abdulkadir');
++----+------------+---------+-----+
+| id | fname      | lname   | age |
++----+------------+---------+-----+
+|  7 | naeem      | ghadai  |  19 |
+|  8 | ahmed      | abdus   |  18 |
+|  9 | abdulkadir | shekha  |  21 |
+| 10 | salik      | mulla   |  19 |
+| 11 | murtaza    | bar     |  20 |
+| 12 | zaki       | bhojani |  19 |
++----+------------+---------+-----+
+6 rows in set, 15 warnings (0.000 sec)
+
+MariaDB [youtubes]> select * from students where fname in ('naeem' , 'abdulkadir');
++----+------------+--------+-----+
+| id | fname      | lname  | age |
++----+------------+--------+-----+
+|  7 | naeem      | ghadai |  19 |
+|  9 | abdulkadir | shekha |  21 |
++----+------------+--------+-----+
+2 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select * from students where fname in ('naeem' , 'abdulkadir','ahmed');
++----+------------+--------+-----+
+| id | fname      | lname  | age |
++----+------------+--------+-----+
+|  7 | naeem      | ghadai |  19 |
+|  8 | ahmed      | abdus  |  18 |
+|  9 | abdulkadir | shekha |  21 |
++----+------------+--------+-----+
+3 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select concat ('naeem' , ' ' , 'ghadai') as fullname;
++--------------+
+| fullname     |
++--------------+
+| naeem ghadai |
++--------------+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> select concat (fname , ' ' , lname) as fullname;
+ERROR 1054 (42S22): Unknown column 'fname' in 'field list'
+MariaDB [youtubes]> select concat (fname , ' ' , lname) from students  as fullname;
++------------------------------+
+| concat (fname , ' ' , lname) |
++------------------------------+
+| naeem ghadai                 |
+| ahmed abdus                  |
+| abdulkadir shekha            |
+| salik mulla                  |
+| murtaza bar                  |
+| zaki bhojani                 |
++------------------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [youtubes]> select reverse('naeem');
++------------------+
+| reverse('naeem') |
++------------------+
+| meean            |
++------------------+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> select reverse('ghadai');
++-------------------+
+| reverse('ghadai') |
++-------------------+
+| iadahg            |
++-------------------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> select concat ('thapa',reverse('thapa')) as palindrome
+    -> ;
++------------+
+| palindrome |
++------------+
+| thapaapaht |
++------------+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> select char_lenght('ghadai');
+ERROR 1305 (42000): FUNCTION youtubes.char_lenght does not exist
+MariaDB [youtubes]> select char_length('ghadai');
++-----------------------+
+| char_length('ghadai') |
++-----------------------+
+|                     6 |
++-----------------------+
+1 row in set (0.001 sec)
+
+MariaDB [youtubes]> select upper('ghadai');
++-----------------+
+| upper('ghadai') |
++-----------------+
+| GHADAI          |
++-----------------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> create table date (
+    -> name varchar(55);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2
+MariaDB [youtubes]> create table date (
+    -> name varchar(55);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2
+MariaDB [youtubes]> create table date (
+    -> name varchar(55)
+    -> , dob date,
+    -> dot time,
+    -> bt datetime);
+Query OK, 0 rows affected (0.483 sec)
+
+MariaDB [youtubes]> insert into date values('naeem','2000-12-14','05:05:05',
+    -> '2000-12-14 05:05:05' );
+Query OK, 1 row affected (0.191 sec)
+
+MariaDB [youtubes]> select * from date;
++-------+------------+----------+---------------------+
+| name  | dob        | dot      | bt                  |
++-------+------------+----------+---------------------+
+| naeem | 2000-12-14 | 05:05:05 | 2000-12-14 05:05:05 |
++-------+------------+----------+---------------------+
+1 row in set (0.000 sec)
+
+MariaDB [youtubes]> insert into date values('naeem', curdate(),curtime(),now() );
+Query OK, 1 row affected (0.161 sec)
+
+MariaDB [youtubes]> select * from date;
++-------+------------+----------+---------------------+
+| name  | dob        | dot      | bt                  |
++-------+------------+----------+---------------------+
+| naeem | 2000-12-14 | 05:05:05 | 2000-12-14 05:05:05 |
+| naeem | 2020-01-26 | 20:11:12 | 2020-01-26 20:11:12 |
++-------+------------+----------+---------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [youtubes]> create table customers ( sid int not null auto_increment primary key, cname varchar(55),email varchar(100) )l
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [youtubes]> create table customers ( sid int not null auto_increment primary key, cname varchar(55),email varchar(100) );
+Query OK, 0 rows affected (0.347 sec)
+
+MariaDB [youtubes]> desc customers;
++-------+--------------+------+-----+---------+----------------+
+| Field | Type         | Null | Key | Default | Extra          |
++-------+--------------+------+-----+---------+----------------+
+| sid   | int(11)      | NO   | PRI | NULL    | auto_increment |
+| cname | varchar(55)  | YES  |     | NULL    |                |
+| email | varchar(100) | YES  |     | NULL    |                |
++-------+--------------+------+-----+---------+----------------+
+3 rows in set (0.037 sec)
+
+MariaDB [youtubes]> create table orders ( oid int not null auto_increment primary key,orderdate date ,cid int , foreing key (cid),references customers (cid) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'key (cid),references customers (cid) )' at line 1
+MariaDB [youtubes]> create table orders ( oid int not null auto_increment primary key,orderdate date ,cid int , foreign key (cid),references customers (cid) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'references customers (cid) )' at line 1
+MariaDB [youtubes]> create table orders ( oid int not null auto_increment primary key,orderdate date ,cid int , foreign key (cid) references customers (cid) );
+ERROR 1005 (HY000): Can't create table `youtubes`.`orders` (errno: 150 "Foreign key constraint is incorrectly formed")
+
+MariaDB [youtubes]> create table orders ( oid int not null auto_increment primary key,orderdate date ,sid int , foreign key (sid) references customers (sid));
+Query OK, 0 rows affected (0.415 sec)
+
+MariaDB [youtubes]> desc orders;
++-----------+---------+------+-----+---------+----------------+
+| Field     | Type    | Null | Key | Default | Extra          |
++-----------+---------+------+-----+---------+----------------+
+| oid       | int(11) | NO   | PRI | NULL    | auto_increment |
+| orderdate | date    | YES  |     | NULL    |                |
+| sid       | int(11) | YES  | MUL | NULL    |                |
++-----------+---------+------+-----+---------+----------------+
+3 rows in set (0.038 sec)
+
+MariaDB [youtubes]> alter table orders add amount int;
+Query OK, 0 rows affected (0.189 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [youtubes]> desc orders;
++-----------+---------+------+-----+---------+----------------+
+| Field     | Type    | Null | Key | Default | Extra          |
++-----------+---------+------+-----+---------+----------------+
+| oid       | int(11) | NO   | PRI | NULL    | auto_increment |
+| orderdate | date    | YES  |     | NULL    |                |
+| sid       | int(11) | YES  | MUL | NULL    |                |
+| amount    | int(11) | YES  |     | NULL    |                |
++-----------+---------+------+-----+---------+----------------+
+
